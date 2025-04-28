@@ -1,11 +1,10 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import adminRoute from './routes/adminRoute.js'
+import { authMiddleware } from './middlewares/authMiddleware.js'
 
 const app = new Hono()
-
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.route('/', adminRoute)
 
 serve({
   fetch: app.fetch,
