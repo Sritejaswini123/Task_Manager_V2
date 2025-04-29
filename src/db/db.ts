@@ -1,5 +1,5 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
-import * as schema from './schema.js';
+import * as schema from './schema/userSchema';
 import { Pool } from 'pg';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';  
@@ -16,5 +16,5 @@ const pool = new Pool({
         ca: fs.readFileSync("./ca.pem").toString(),
       },
 });
-export const db = drizzle(pool, { schema });
+export const db = drizzle(pool, { schema});
 // export const db = drizzle(pool, { schema: userSchema });

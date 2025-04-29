@@ -8,6 +8,7 @@ export const createNewUser = async (c: Context) => {
   const { name, email, password } = await c.req.json();
   try {
     const newUser = await addUserToDatabase(name, email, password);
+    console.log(newUser);
     return c.json(
       {
         message: "User added successfully",

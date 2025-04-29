@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { db } from "../db/db.js";
-import { users } from "../db/userSchema.js";
+import { users } from "../db/schema/userSchema.js";
 import { userValidationSchema } from "../utils/validation.js";
 import { safeParse } from "valibot"; // <<< Import this!
 

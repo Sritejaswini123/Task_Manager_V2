@@ -5,7 +5,7 @@ import { object, pipe, string, email, minLength } from "valibot";
 export const userValidationSchema = object({
   email: pipe(
     string(),
-    email() // built-in email validation
+    email("@gmail.com") // built-in email validation
   ),
   password: pipe(
     string(),
