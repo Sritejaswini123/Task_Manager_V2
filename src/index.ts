@@ -5,6 +5,7 @@ import { authMiddleware } from './middlewares/authMiddleware.js'
 
 const app = new Hono()
 app.route('/', adminRoute)
+// app.route('/',taskRoute)
 
 serve({
   fetch: app.fetch,
