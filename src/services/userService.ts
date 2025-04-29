@@ -14,7 +14,7 @@ export async function addUserToDatabase(email: string, password: string, usernam
     email,
     password: hashedPassword, // Store the hashed password
     username,
-    role: "user", // Default user role
+    role: "admin", // Default user role
   }).returning();
 
   return newUser[0]; // Return the inserted user

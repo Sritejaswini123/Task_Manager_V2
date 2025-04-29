@@ -1,11 +1,13 @@
 // utils/validation.ts
 
+import { endsWith } from "@valibot/valibot";
 import { object, pipe, string, email, minLength } from "valibot";
 
 export const userValidationSchema = object({
   email: pipe(
     string(),
-    email() // built-in email validation
+    email(), // built-in email validation
+    endsWith("@gmail.com")
   ),
   password: pipe(
     string(),
