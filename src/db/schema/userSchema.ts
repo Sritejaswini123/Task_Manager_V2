@@ -7,6 +7,6 @@ export const users = pgTable("users", {
   email: varchar("email", { length: 255 }).unique().notNull(),
   password: varchar("password", { length: 255 }).notNull(),
   username: varchar("username", { length: 255 }).notNull(),
-  role: text("role").default("user").notNull(), // Default role "user"
+  role: text("role").default("admin").notNull(), // Default role "admin"
   createdAt: timestamp("created_at").defaultNow(),
 });

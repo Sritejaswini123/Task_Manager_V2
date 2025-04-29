@@ -6,12 +6,6 @@ import { safeParse } from "valibot"; // <<< Import this!
 
 // Function to add user to the database
 export async function addUserToDatabase(email: string, password: string, username: string) {
-  // Validate input data
-  const validationResult = safeParse(userValidationSchema, { email, password, username });
-  if (!validationResult.success) {
-    throw new Error("Invalid input data");
-  }
-
   // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10);
 

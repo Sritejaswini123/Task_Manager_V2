@@ -5,9 +5,10 @@ export const adminController = new Hono();
 
 // Save user
 export const createNewUser = async (c: Context) => {
-  const { name, email, password } = await c.req.json();
+  const { username, email, password } = await c.req.json();
+
   try {
-    const newUser = await addUserToDatabase(name, email, password);
+    const newUser = await addUserToDatabase(username, email, password);
     console.log(newUser);
     return c.json(
       {
