@@ -1,9 +1,10 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-
+import { userRoutes } from './routes/userRoutes'
 
 const app = new Hono()
-app.get('/', (c) => c.text('Hello, world!'))
+
+app.route('/',userRoutes)
 
 serve({
   fetch: app.fetch,
