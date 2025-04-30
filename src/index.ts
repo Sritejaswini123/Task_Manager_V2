@@ -1,11 +1,9 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-import adminRoute from './routes/adminRoute.js'
-import {taskRoutes} from './routes/taskRoutes.js'
+
 
 const app = new Hono()
-app.route('/', adminRoute)
-app.route('./task', taskRoutes)
+app.get('/', (c) => c.text('Hello, world!'))
 
 serve({
   fetch: app.fetch,
