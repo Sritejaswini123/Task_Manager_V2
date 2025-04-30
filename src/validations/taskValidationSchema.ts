@@ -8,7 +8,7 @@ import {
     string
 } from '@valibot/valibot';
   
-  export const userTaskSchemaValidation = object({
+  export const taskSchemaValidation = object({
     task_id: pipe(
       number()
     ),

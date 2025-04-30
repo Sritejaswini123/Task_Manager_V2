@@ -4,11 +4,11 @@ import { users } from "./userSchema";
 
 export const userProject=pgTable("userProjects",{
     id:serial("project_id").primaryKey(),
-    title:varchar("title",{length:255}).notNull(),
-    description: text("description"), 
-    created_by: integer("created_by").notNull().references(()=>users.id),
-    status:varchar("status", { length: 50 }).notNull().unique(),
-    created_at:timestamp("created_at").defaultNow(),
-    updated_at: timestamp("updated_at").notNull() 
+    title:varchar({length:255}).notNull(),
+    description: text(), 
+    created_by: integer().notNull().references(()=>users.id),
+    status:varchar( { length: 50 }).notNull().unique(),
+    created_at:timestamp().defaultNow(),
+    updated_at: timestamp().notNull() 
 })
 

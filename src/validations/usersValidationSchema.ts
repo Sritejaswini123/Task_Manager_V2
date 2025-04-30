@@ -26,7 +26,5 @@ export const userSchemaValidations = object({
       ),
       status: pipe(
         string(),
-      ),
-
-    
+      ),    
 })

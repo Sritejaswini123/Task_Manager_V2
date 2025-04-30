@@ -1,6 +1,7 @@
 import type { Context } from "hono";
 import { verifyToken } from "../utils/jwt.js";
 
+
 // Middleware to verify if the user is an admin
 export async function authMiddleware(ctx: Context, next: () => Promise<void>) {
   const authHeader = ctx.req.header("Authorization"); // Correct way to get headers in Hono

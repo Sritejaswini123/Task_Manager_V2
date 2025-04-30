@@ -15,7 +15,7 @@ import {
   
     title: pipe(
       string(),
-      minLength(6, 'Title is mandatory')
+     
     ),
   
     description: pipe(
