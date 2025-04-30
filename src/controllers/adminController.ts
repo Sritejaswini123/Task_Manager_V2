@@ -1,8 +1,8 @@
 import { Hono } from "hono";
 import { addUserToDatabase } from "../services/userService.js";
 import type { Context } from "hono";
-export const adminController = new Hono();
 
+export const adminController = new Hono();
 // Save user
 export const createNewUser = async (c: Context) => {
   const { username, email, password } = await c.req.json();

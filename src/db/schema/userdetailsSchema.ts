@@ -8,7 +8,7 @@ export const users = pgTable("users", {
   userType: varchar("user_type", { length: 50 }) .notNull(),            
   email: varchar("email", { length: 255 }).unique().notNull(), 
   address: text("address").notNull(),                         
-  status: varchar("status", { length: 50 }) .notNull(),                               
+status: varchar("status", { length: 50 }) .notNull(),                               
   createdAt: timestamp("created_at"),            
   //updatedAt: timestamp("updated_at"),           
 });

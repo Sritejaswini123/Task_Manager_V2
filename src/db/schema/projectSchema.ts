@@ -1,8 +1,9 @@
 
+//projectSchema.js
 import { pgTable, serial, text, timestamp, varchar,integer } from "drizzle-orm/pg-core";
 
 export const userProject=pgTable("userProjects",{
-    project_id:serial("project_id").primaryKey(),
+    id:serial("project_id").primaryKey(),
     title:varchar("title",{length:255}).notNull(),
     description: text("description"), 
     created_by:integer(),

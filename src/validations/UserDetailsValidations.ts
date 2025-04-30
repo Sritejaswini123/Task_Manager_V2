@@ -1,4 +1,5 @@
-import { nonEmpty } from "@valibot/valibot"
+
+//UserDetails_Validations.ts
 import {object , pipe, string,minLength, email, endsWith,} from "valibot"
 
 export const userDetailsValidations = object({

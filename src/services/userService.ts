@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import { db } from "../db/db.js";
-import { users } from "../db/schema/userSchema.js";
-import { userValidationSchema } from "../utils/validation.js";
+import { users } from "../db/schema/AdminSchema.js";
+import { userValidationSchema } from "../validations/Adminvalidation.js";
 import { safeParse } from "valibot"; // <<< Import this!
 
 // Function to add user to the database
