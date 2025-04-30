@@ -20,8 +20,8 @@ export const getById=async(id:number)=>{
     return project;
 }
 
-export const updateProjectData=async(id:number)=>{
-    const project=await db.select().from(userProject).where(eq(userProject.id,id));
+export const updateProjectData=async(id: number, data: any)=>{
+    const project=await db.update(userProject).set({...data,updated_at:new Date()}).where(eq(userProject.id,id));
     return project;
 }
 

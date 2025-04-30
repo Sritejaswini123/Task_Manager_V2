@@ -10,13 +10,13 @@ export const  createNewProject=async(c:Context)=>{
 const projectData=await c.req.json();
 console.log(projectData);
 try {
-    const validatedProjectData=safeParse(projectSchemaValidation,projectData)
-    console.log(validatedProjectData);
-    if(!validatedProjectData.success){
-        throw new Error(validatedProjectData.issues[0].message)
-    }
-    const project=await addNewProjectToDB(validatedProjectData);
-    return c.json({project},201);
+    // const projectsDetails=safeParse(projectSchemaValidation,projectData)
+    // console.log(projectsDetails);
+    // if(!projectsDetails.success){
+    //     throw new Error(projectsDetails.issues[0].message)
+    // }
+    // const project=await addNewProjectToDB(projectsDetails.output);
+    return c.json({projectData},201);
 } catch (error) {
     return c.json({msg:error},400);
 }
@@ -49,18 +49,18 @@ export const getAllProjectsById=async(c:Context)=>{
 
 
 
-
-export const updateProject=async(c:Context)=>{
-
-    const id=Number(c.req.param('id'));
-    const projectData=await c.req.json();
+export const updateProject = async (c: Context) => {
+    const id = Number(c.req.param('id'));
+    const projectData = await c.req.json();
+  
     try {
-        const getProjectsData=await updateProjectData (projectData.id);
-        return c.json(getProjectsData,200);
+      const updated = await updateProjectData(id, projectData);
+      return c.json(updated, 200);
     } catch (error) {
-        return c.json({msg:error},400);
+      return c.json({ msg: error }, 400);
     }
-}
+  };
+  
 
 
 //delete project
@@ -69,8 +69,8 @@ export const deleteProject=async(c:Context)=>{
     const id=Number(c.req.param('id'));
     
     try {
-        const projectsDetails=await c.req.json();
-        const project=await deleteProjectData(projectsDetails.id);
+       
+        const project=await deleteProjectData(id);
         return c.json(project,200);
     } catch (error) {
         return c.json({msg:error},400);
