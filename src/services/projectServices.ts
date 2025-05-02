@@ -4,8 +4,9 @@ import { userProject } from "../db/schema/projectSchema";
 
 
 
-export const addNewProjectToDB=async (body:any)=>{
-    const user=await db.insert(userProject).values(body).returning();
+
+export const addNewProjectToDB=async (body : any )=>{
+    const user=await db.insert(userProject).values({...body , updated_at : new Date()}).returning();
     return user[0];
 }
 
