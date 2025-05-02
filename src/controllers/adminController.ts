@@ -8,7 +8,7 @@ import { getUserDataByEmail } from "../validations/dbServices";
 
 export const adminController = new Hono();
 
-console.log("entering to adiminController");
+// console.log("entering to adiminController");
 
 // Save user
 export const createNewUser = async (c: Context) => {

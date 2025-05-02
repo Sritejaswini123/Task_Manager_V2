@@ -5,6 +5,6 @@ import { userProjectRelation } from "../controllers/userProjectRelations.Control
 
 const userProjectRelationRoutes=new Hono();
 
-userProjectRelationRoutes.get('/user-project-relation',userProjectRelation);
+userProjectRelationRoutes.get('/user-project-relation/:id',userProjectRelation);
 
 export default userProjectRelationRoutes;
