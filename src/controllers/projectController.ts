@@ -1,30 +1,90 @@
 import { safeParse } from "@valibot/valibot";
 import { Context } from "hono";
-import { addNewProject } from "../services/projectServices";
-import { projectValidation } from "../validations/projectValidation";
-
+import { users } from "../db/schema/userSchema";
+import { addNewProjectToDB, deleteProjectData, getAllProjectsData, getProjectById, updateProjectData } from "../services/projectServices";
+import { projectSchemaValidation } from "../validations/projectValidation";
 
 
 //save new project
+
 export const  createNewProject=async(c:Context)=>{
+    try {
+        const projectData=await c.req.json();
+       
+        const validatedProjectData=safeParse(projectSchemaValidation,projectData)
+   
+        if(!validatedProjectData.success){
+            return c.json({
+                message : validatedProjectData.issues[0].message
+            })
+        }
+        const project=await addNewProjectToDB(validatedProjectData.output);
+        return c.json({project},201);
+    } catch (error) {
+        return c.json({msg:error},400);
+}
+
+}
+
+
+//get all projects
+export const getAllProjects=async(c:Context)=>{
+
+    try {
+        const getProjectsData=await getAllProjectsData(users);
+        return c.json(getProjectsData,200);
+    } catch (error) {
+        return c.json({msg:error},400);
+    }
+}
+
+export const getProjectsDetailsById=async(c:Context)=>{
+    const paramId=Number(c.req.param('id'));
+    try {
+     
+        const getProjectsData=await getProjectById(paramId);
+        return c.json(getProjectsData,200);
+    } catch (error) {
+        return c.json({msg:error},400);
+    }
+}
+
+
+
+
+export const updateProject=async(c:Context)=>{
+
     
     try {
         const projectData=await c.req.json();
-        console.log(projectData);
-        const validatedProjectData=safeParse(projectValidation,projectData)
-        console.log("validatedpROJECT",validatedProjectData);
+        const id=Number(c.req.param('id'));
+        const validatedProjectData=safeParse(projectSchemaValidation,projectData)
+       
         if(!validatedProjectData.success){
-            throw new Error(validatedProjectData.issues[0].message)
+            return c.json({
+                message : validatedProjectData.issues[0].message
+            })
         }
-        console.log('====================================');
-        console.log("hello");
-        console.log('====================================');
-        const project=await addNewProject(validatedProjectData.output);
-        return c.json({project},201);
+        const getProjectsData=await updateProjectData(projectData, id);
+      
+        return c.json(getProjectsData,200);
     } catch (error) {
-        console.log(error);
-        return c.json({msg:error},500);
+        return c.json({msg:error},400);
     }
+}
+
+
+//delete project
+
+export const deleteProject=async(c:Context)=>{
+    const id=Number(c.req.param('id'));
     
+    try {
+       
+        const project=await deleteProjectData(id);
+        return c.json(project,200);
+    } catch (error) {
+        return c.json({msg:error},400);
     }
-    
+
+}

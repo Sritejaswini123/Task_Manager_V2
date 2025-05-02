@@ -1,24 +1,15 @@
-import type { Context } from "hono";
-import { verifyToken } from "../utils/jwt.js";
+import { Context } from "hono";
+import { verify } from "hono/jwt";
 
-// Middleware to verify if the user is an admin
-export async function authMiddleware(ctx: Context, next: () => Promise<void>) {
-  const authHeader = ctx.req.header("Authorization"); // Correct way to get headers in Hono
+export const isAuthorized = async (c:Context, next )=>{
 
-  if (!authHeader) {
-    return ctx.json({ message: "Unauthorized: No token provided" }, 401);
-  }
-
-  const token = authHeader.split(" ")[1]; // Extract token from header
-
-  try {
-    const decoded = verifyToken(token); // Decode the token
-    if ((decoded as any).role !== "admin") {
-      return ctx.json({ message: "Forbidden: Admin access only" }, 403);
-    }
-    ctx.set("user", decoded); // Proper way to set data to context's state
-    await next(); // await next middleware
-  } catch (error) {
-    return ctx.json({ message: "Unauthorized: Invalid token" }, 401);
-  }
+        const token = c.req.header("Authorization");
+        const verifyInfo = await verify(token! , "shivaji180397")
+        console.log("verifyInfo" , verifyInfo)
+        if(false){
+          return c.json({
+            message : "LoggIn first"
+          })
+        }
+        return await  next()
 }
