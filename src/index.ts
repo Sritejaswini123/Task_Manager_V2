@@ -1,14 +1,12 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-import loginRoutes from './routes/loginRoute'
 import projectRoutes from './routes/projectRoutes'
 import { userRoutes } from './routes/userRoutes'
-
+import { taskRoutes } from './routes/taskRoutes'
 const app = new Hono()
-
 app.route('/',userRoutes)
 app.route('/', projectRoutes)
-app.route('/',loginRoutes)
+app.route('/', taskRoutes)
 
 serve({
   fetch: app.fetch,

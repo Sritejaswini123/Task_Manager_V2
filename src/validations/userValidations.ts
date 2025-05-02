@@ -4,11 +4,11 @@ import {object , pipe, string,minLength, email, endsWith,} from "valibot"
 export const userValidations = object({
     firstName: pipe(
         string(),
-         minLength(3 , "min 3 characters long"),
+         minLength(3 , "First Name must be at least 3 characters long"),
         ),
     lastName: pipe(
         string(),
-        minLength(3 , "max 3 characters long"),
+        minLength(3 , "Last Name must be at least 3 characters long"),
     ),
     email: pipe(
         string(),
@@ -18,15 +18,15 @@ export const userValidations = object({
 
       address: pipe(
         string(),
-        minLength(3 , "address min 3 characters long"),
+        minLength(3 , "Address must be at least 3 characters long"),
 
       ),   
       userType: pipe(
         string(),
-        minLength(3, "user type must be at least 3 characters long")
+        minLength(3, "User type must be at least 3 characters long")
       ),
       status: pipe(
         string(),
-        minLength(3, "status must be at least 3 characters long")
+        minLength(3, "Status must be at least 3 characters long")
       ) 
 })
