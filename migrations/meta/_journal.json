@@ -15,6 +15,13 @@
       "when": 1746082946967,
       "tag": "0001_known_nuke",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1746166386391,
+      "tag": "0002_same_strong_guy",
+      "breakpoints": true
     }
   ]
 }

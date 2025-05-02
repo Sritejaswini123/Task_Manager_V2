@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "../db/db";
-import { userProject } from "../db/schema/projectSchema";
+import { userProject} from "../db/schema/projectSchema";
 
 
 
