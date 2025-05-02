@@ -5,7 +5,7 @@ import { createNewProject, deleteProject, getAllProjects, getAllProjectsById, up
 
 const projectRoutes = new Hono();
 
-projectRoutes.post("/save", createNewProject);
+projectRoutes.post("/saveProject", createNewProject);
 projectRoutes.get("/projects", getAllProjects);
 projectRoutes.get("/projects/:id", getAllProjectsById);
 projectRoutes.patch("/project/:id", updateProject);
