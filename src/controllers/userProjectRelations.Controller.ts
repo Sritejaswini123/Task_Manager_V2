@@ -7,11 +7,9 @@ export const userProjectRelation=async(c:Context)=>{
   
     try {
         const userId=Number(c.req.param('id'))
-        console.log(userId);
+        
         const result=await userProjectRelations(userId);
-        
-        
-        return c.json({result},200);
+        return c.json(result,200);
     } catch (error) {
         return c.json({msg:error},400);
     }
