@@ -1,0 +1,1 @@
+ALTER TABLE "userTasks" RENAME COLUMN "task_id" TO "id";

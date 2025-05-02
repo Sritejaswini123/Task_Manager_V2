@@ -1,11 +1,4 @@
-import {
-    minLength,
-    nonEmpty,
-    number,
-    object,
-    pipe,
-    string,
-  } from 'valibot';
+import { minLength,nonEmpty, number,   object,   pipe,  string,} from 'valibot';
   export const projectValidation = object({
   
     title: pipe(
@@ -18,12 +11,10 @@ import {
       string(),
       nonEmpty('Description is required')
     ),
-  
     created_by: pipe(
       number(),
       
     ),
-  
     status: pipe(
       string(),
       nonEmpty('Status is required'),

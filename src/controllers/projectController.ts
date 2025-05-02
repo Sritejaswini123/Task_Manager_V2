@@ -18,6 +18,7 @@ export const  createNewProject=async(c:Context)=>{
         }
         console.log('====================================');
         console.log("hello");
+        
         console.log('====================================');
         const project=await addNewProject(validatedProjectData.output);
         return c.json({project},201);
