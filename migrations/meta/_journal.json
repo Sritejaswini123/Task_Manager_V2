@@ -22,6 +22,13 @@
       "when": 1746166386391,
       "tag": "0002_same_strong_guy",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1746248459386,
+      "tag": "0003_handy_bloodstorm",
+      "breakpoints": true
     }
   ]
 }
