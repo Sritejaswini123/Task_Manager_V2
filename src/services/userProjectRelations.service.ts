@@ -29,21 +29,7 @@ return result;
 
 
 
-// export const userProjectRelations=async(userId:number)=>{
-//     const result = await db
-//     .select({
-//       userId: users.id,
-//       firstName: users.firstName,
-//       lastName: users.lastName,
-//       userProject:userProject.title,
-    
-//     })
-//     .from(users)
-//     .innerJoin(userProject, eq(users.id, userProject.created_by))
-//     // .where(eq(users.id, userId))
-//     return result;
-   
-// }
+
 
 
 

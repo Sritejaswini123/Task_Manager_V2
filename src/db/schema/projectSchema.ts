@@ -8,7 +8,7 @@ import { users } from "./userSchema";
         description: text(), 
         created_by: integer().notNull().references(()=>users.id),
         status:varchar().notNull(),
-        created_at:timestamp().defaultNow(),
+        created_at:timestamp().defaultNow(),    
         updated_at: timestamp()
     })
 
